@@ -55,14 +55,14 @@ A prediction can be accurate without telling us whether taking an action changes
 
 ## Day 1 · From purchases to customers
 
-A transaction log has one row per purchase. To reason about customers, we build one row per customer.
+A raw transaction log records purchases, often as order lines. We clean and combine those records to build one row per customer.
 
-| Customer | Repeat purchases | Last purchase | Time observed |
-|---|---:|---|---:|
-| A | 4 | Recently | 12 months |
-| B | 1 | Long ago | 12 months |
+| Customer | Repeat purchase days | Recency | Age at cutoff |
+|---|---:|---:|---:|
+| A | 4 | 48 weeks | 52 weeks |
+| B | 1 | 12 weeks | 52 weeks |
 
-**Frequency** counts repeat purchases. **Recency** locates the last purchase. Customer **age** is how long we have observed them since their first purchase. Together, these summarize behavior, but they do not reveal whether B has permanently left.
+**Frequency** counts purchase days after the first. **Recency** measures time from the first purchase to the last. Customer **age** measures time from the first purchase to the cutoff. So A has been silent for 52 − 48 = 4 weeks, while B has been silent for 52 − 12 = 40 weeks. Neither gap reveals whether the customer has permanently left.
 
 ::: {.muted}
 The rows are hypothetical and illustrate the fields, not workshop results.
@@ -96,11 +96,11 @@ The numbers are hypothetical. A good fit to past data alone cannot establish for
 
 ## Day 2 · Customer lifetime value
 
-**Customer lifetime value (CLV)** estimates the value of future purchases over a stated time horizon. It combines how often someone may buy with how much contribution each purchase may produce.
+**Customer lifetime value (CLV)** estimates the value of future purchases over a stated time horizon. It combines how often someone may buy with the **contribution** from each purchase: sales revenue minus the costs directly tied to that order.
 
 > Expected future orders × contribution per order = expected future contribution
 
-For a **hypothetical** customer, 3 expected orders at $20 contribution each yield $60 before discounting and contact costs. Real decisions also depend on when those orders arrive, how uncertain the forecast is and what action the retailer can take.
+For a **hypothetical** customer, 3 expected orders at $20 contribution each yield $60 before contact costs and discounting future money to today's value. Real decisions also depend on when those orders arrive, how uncertain the forecast is and what action the retailer can take.
 
 ## Day 2 · Value is not a decision by itself
 
@@ -137,7 +137,7 @@ For a regional campaign, we may not be able to randomize individual customers. W
 
 **Difference in differences** compares how sales changed in the treated region with how they changed elsewhere. **Synthetic control** builds a comparison region as a weighted mix of other regions.
 
-Both rely on a credible story about what would have happened without the campaign. We examine trends before the campaign and run **placebo checks** on periods or regions where no effect should appear.
+Both rely on a credible story about what would have happened without the campaign. We examine trends before the campaign and run **placebo checks**: repeat the analysis in periods or regions where no campaign effect should appear.
 
 ## Day 3 · A regional comparison
 
@@ -163,7 +163,7 @@ The model observes spend rather than assigning it at random. If the retailer spe
 
 ## Day 4 · What weekly sales contain
 
-An MMM separates observed weekly sales into a **baseline**, estimated media contributions and unexplained variation:
+An MMM separates observed weekly sales into a **baseline**, estimated media contributions and **residual variation**, the difference left unexplained by the model:
 
 > Sales = baseline + media contributions + residual variation
 
