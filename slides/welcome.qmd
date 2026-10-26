@@ -1,9 +1,9 @@
 ---
 title: "{{< var workshop.title >}}"
-subtitle: "Welcome: the week ahead and how we work"
+subtitle: "The questions, methods and decisions of the week"
 author: "{{< var workshop.org >}} · The Day 1 opening"
-# The deck for the opening of Day 1. Days, modules and names come from _variables.yml
-# through var shortcodes; do not type them here. Colors: slides.scss (the light tokens).
+# Day/module names and schedule facts come from _variables.yml. Numerical
+# examples below are explicitly hypothetical teaching examples.
 format:
   revealjs:
     theme: [default, ../slides.scss]
@@ -17,10 +17,204 @@ format:
     menu: true
     link-external-newwindow: true
     footer: "{{< var workshop.title >}} · {{< var repo.site >}}"
-# $ms-ink in slides.scss and custom.scss: the title slide is the site's hero band.
 title-slide-attributes:
   data-background-color: "#0e3a44"
 ---
+
+## What we will learn
+
+By the end of the week, you should be able to explain:
+
+1. Who is likely to buy again?
+2. What might those purchases be worth?
+3. Which sales did marketing actually cause?
+4. Where should a limited budget go?
+5. Who benefits from an offer?
+
+Each answer must lead to a decision and say how uncertain the evidence is.
+
+## One retailer, many decisions
+
+Our running example is a **synthetic online retailer**. Customers buy at different rates and may leave without saying so. The retailer sends email offers, runs regional campaigns and buys media.
+
+Because the data are generated, we know the underlying answers. We can compare methods with that known truth before trying them on real data.
+
+::: {.note-box}
+The story stays the same while the question changes. This makes it easier to see what each method adds.
+:::
+
+## Describe, predict or estimate cause
+
+| Question | Example | Evidence |
+|---|---|---|
+| **Describe** what happened | How many customers bought twice? | Clean transactions and count |
+| **Predict** what may happen | Who may buy next month? | Fit on earlier data, check on later data |
+| **Estimate cause** | Did an offer create extra sales? | Compare with what would have happened without it |
+
+A prediction can be accurate without telling us whether taking an action changes the outcome.
+
+## Day 1 · From purchases to customers
+
+A raw transaction log records purchases, often as order lines. We clean and combine those records to build one row per customer.
+
+| Customer | Repeat purchase days | Recency | Age at cutoff |
+|---|---:|---:|---:|
+| A | 4 | 48 weeks | 52 weeks |
+| B | 1 | 12 weeks | 52 weeks |
+
+**Frequency** counts purchase days after the first. **Recency** measures time from the first purchase to the last. Customer **age** measures time from the first purchase to the cutoff. So A has been silent for 52 − 48 = 4 weeks, while B has been silent for 52 − 12 = 40 weeks. Neither gap reveals whether the customer has permanently left.
+
+::: {.muted}
+The rows are hypothetical and illustrate the fields, not workshop results.
+:::
+
+## Day 1 · Silent churn
+
+For a subscription, cancellation tells us when a customer leaves. For a shop, a long gap could mean the customer has left or is simply waiting to buy again. We call this **silent churn**.
+
+A rule such as “no purchase for 90 days” is easy to apply. Its cutoff is arbitrary, though: a customer flagged as lost may return on day 100.
+
+A buy-till-you-die model treats purchasing and dropout as processes we cannot observe directly. It estimates a **probability that the customer is still active** and a distribution of future purchases. We check those predictions against purchases in a later period.
+
+## Day 1 · What a model must learn
+
+Two customers can have the same time since their last order but different histories. A frequent buyer who suddenly stops may be more surprising than an occasional buyer with the same gap.
+
+The model uses **frequency**, **recency** and **age** together to distinguish these patterns. Its “probability alive” is a model estimate, not a directly observed label.
+
+The business decision compares the expected value of another contact with its cost. We also ask whether the model predicts later purchases better than a simple recency rule.
+
+## Day 1 · Testing a forecast
+
+We split the timeline into a **calibration period** and a later **holdout period**. The model sees only calibration purchases when it predicts the holdout.
+
+If a model predicts 200 repeat orders across a group and the group later places 120, it is overpredicting for that group. If both numbers are near 200, that is encouraging, but we still check whether the model works for frequent and infrequent buyers separately.
+
+::: {.muted}
+The numbers are hypothetical. A good fit to past data alone cannot establish forecast quality.
+:::
+
+## Day 2 · Customer lifetime value
+
+**Customer lifetime value (CLV)** estimates the value of future purchases over a stated time horizon. It combines how often someone may buy with the **contribution** from each purchase: sales revenue minus the costs directly tied to that order.
+
+> Expected future orders × contribution per order = expected future contribution
+
+For a **hypothetical** customer, 3 expected orders at $20 contribution each yield $60 before contact costs and discounting future money to today's value. Real decisions also depend on when those orders arrive, how uncertain the forecast is and what action the retailer can take.
+
+## Day 2 · Value is not a decision by itself
+
+A high CLV forecast can justify a higher acquisition or retention spend, but only if the **extra value caused by that spend** exceeds its cost.
+
+Consider a **hypothetical** offer that costs $2 per contact and adds $20 contribution for each extra order. It needs to cause more than 1 extra order per 10 contacts to cover contact cost: $2 ÷ $20 = 0.10.
+
+The key word is **extra**. A customer who would buy anyway does not make the offer profitable. This is why the week moves from forecasting value to measuring causal impact.
+
+## Day 3 · The missing comparison
+
+For the same customer at the same time, we can observe a purchase **with** an offer or **without** one. We cannot observe both. The unobserved outcome is the **counterfactual**.
+
+If a customer buys after receiving an offer, the offer may have helped. The customer may also have bought without it. Simply counting purchases after the offer confuses these possibilities.
+
+A randomized experiment assigns some customers to receive the offer and others to a control group. Random assignment helps make the groups comparable before the offer.
+
+## Day 3 · Reading an experiment
+
+Consider a **hypothetical randomized** experiment:
+
+| Group | Customers | Customers who buy | Purchase rate |
+|---|---:|---:|---:|
+| Offer | 100 | 20 | 20% |
+| Control | 100 | 15 | 15% |
+
+The estimated effect is **5 percentage points**, or about **5 extra purchasers per 100 offers** at these observed rates. It is an estimate for this population and offer, not a promise about every customer.
+
+With only 100 people per group, chance can move the difference. The lab uses uncertainty intervals and checks for assignment or measurement problems before making a decision.
+
+## Day 3 · Regional campaigns
+
+For a regional campaign, we may not be able to randomize individual customers. We compare sales in a treated region with a plausible untreated comparison.
+
+**Difference in differences** compares how sales changed in the treated region with how they changed elsewhere. **Synthetic control** builds a comparison region as a weighted mix of other regions.
+
+Both rely on a credible story about what would have happened without the campaign. We examine trends before the campaign and run **placebo checks**: repeat the analysis in periods or regions where no campaign effect should appear.
+
+## Day 3 · A regional comparison
+
+Consider **hypothetical** weekly sales before and after a campaign:
+
+| Region | Before | After | Change |
+|---|---:|---:|---:|
+| Campaign region | 100 | 130 | +30 |
+| Comparison region | 80 | 95 | +15 |
+
+The difference in differences estimate is **+15**: the campaign region rose 30, while the comparison rose 15. The method attributes the *extra change* to the campaign only if the comparison is a credible picture of what would have happened without it.
+
+## Day 4 · A marketing mix model
+
+A **marketing mix model (MMM)** uses weekly sales and media spend to estimate how channels contribute to sales. It also accounts for other influences, such as seasonality and price.
+
+Two features make the relationship more realistic:
+
+- **Carryover:** an ad can affect sales after the week it runs.
+- **Diminishing returns:** another dollar often adds less when a channel already has a large budget.
+
+The model observes spend rather than assigning it at random. If the retailer spends more during a holiday sales surge, the model can mistake holiday demand for media impact. Experiments help check or calibrate its estimates.
+
+## Day 4 · What weekly sales contain
+
+An MMM separates observed weekly sales into a **baseline**, estimated media contributions and **residual variation**, the difference left unexplained by the model:
+
+> Sales = baseline + media contributions + residual variation
+
+The baseline includes influences such as seasonality, price and underlying demand. For media, **adstock** spreads an ad's effect across later weeks, while a **saturation curve** lets its effect flatten as spend grows.
+
+We compare the model's predictions with held-out weeks and with evidence from lift tests. A good prediction alone cannot prove that its channel contributions are causal.
+
+## Day 4 · Average and marginal return
+
+**Average return** divides all estimated sales caused by a channel by all spend on that channel. **Marginal return** asks how much additional value the *next* dollar is expected to create at the current spend level.
+
+Those are different questions. A channel can have a strong historical average return but little room to grow because its audience is saturated. Another may have a lower average return yet a better next dollar.
+
+Budget allocation compares marginal returns across channels while respecting spend limits, business constraints and uncertainty.
+
+## Day 5 · Targeting by uplift
+
+A high chance of purchase does not mean a customer needs a discount. Some customers would buy without one.
+
+An **uplift model** estimates how much an offer changes the outcome for a customer or group. A useful targeting rule compares expected **incremental margin** with the offer cost. It may choose a customer with a modest baseline purchase chance if the offer changes their behavior substantially.
+
+We assess the rule on customers held out from model training. The final output is a contact list and an explanation of why those customers were chosen.
+
+## Day 5 · An uplift example
+
+Imagine two **hypothetical** customer groups in a randomized offer test:
+
+| Group | Purchase rate with offer | Without offer | Estimated uplift |
+|---|---:|---:|---:|
+| Frequent buyers | 60% | 58% | +2 percentage points |
+| Occasional buyers | 30% | 20% | +10 percentage points |
+
+Frequent buyers are more likely to purchase in either condition. The offer appears to change behavior more for occasional buyers. If the cost per offer is the same, the second group may be a better target, subject to margin and uncertainty.
+
+## How the parts connect
+
+:::: {.columns}
+::: {.column width="45%" .integration-img}
+![](../images/integration.svg){fig-alt="Three paths to decisions: transactions lead to customer value; regional tests inform a media model and budget allocation; randomized offers inform uplift and targeting. Customer value also informs allocation and targeting."}
+:::
+
+::: {.column width="55%"}
+**Transactions** help estimate future purchases and customer value.
+
+**Experiments** estimate extra sales caused by marketing. Regional tests can inform the media model.
+
+**The media model** estimates returns at different spend levels. **Uplift** helps choose who receives an offer.
+
+All paths end in a decision with uncertainty attached.
+:::
+::::
 
 ## Five days, five questions
 
@@ -34,113 +228,45 @@ title-slide-attributes:
 Module 0 ({{< var modules.m00.title >}}) is optional pre-work before Day 1.
 :::
 
-## Every module ends in a decision
-
-::: {.lead}
-Machine learning for growth marketing is only useful if it changes what someone does on Monday.
-:::
-
-::: {.decision-box}
-Whom to retain · what a customer is worth · what to spend where · whom to send the discount
-:::
-
-- Each lab closes with its decision cell, made from your own results.
-- The same retailer and its data come back all week, so each method is measured against the one before it on the same customers.
-
-## The path
-
-:::: {.columns}
-::: {.column width="50%"}
-0. {{< var modules.m00.title >}}
-1. {{< var modules.m01.title >}}
-2. {{< var modules.m02.title >}}
-3. {{< var modules.m03.title >}}
-4. {{< var modules.m04.title >}}
-5. {{< var modules.m05.title >}}
-6. {{< var modules.m06.title >}}
-:::
-
-::: {.column width="50%"}
-7. {{< var modules.m07.title >}}
-8. {{< var modules.m08.title >}}
-9. {{< var modules.m09.title >}}
-10. {{< var modules.m10.title >}}
-11. {{< var modules.m11.title >}}
-12. {{< var modules.m12.title >}}
-:::
-::::
-
-::: {.muted}
-Each step fixes a failure of the one before it.
-:::
-
-## How the parts connect
-
-:::: {.columns}
-::: {.column width="45%" .integration-img}
-![](../images/integration.svg){fig-alt="Three lanes ending in decisions: geo tests to measured lift to a Bayesian MMM to the allocator; transactions to BTYD and Gamma-Gamma to CLV; experiments to uplift models to targeting. CLV feeds the allocator's long-run objective and the targeting margin."}
-:::
-
-::: {.column width="55%"}
-- **Customer value** (middle): transactions → BTYD and Gamma-Gamma → CLV.
-- **Media and lift** (left): geo tests → measured lift → priors or likelihood for the MMM → the allocator.
-- **Targeting** (right): experiments → uplift models → who gets the offer.
-- **CLV connects them:** the allocator's long-run objective and the targeting margin.
-:::
-::::
-
-## How a module runs
+## How a module works
 
 ::: {.shape}
 [Briefing]{.shape-briefing}[Lab in Colab]{.shape-lab}[Debrief]{.shape-debrief}
 :::
 
-- **Briefing:** why the method is needed, and how it works, at the depth you need to use and check it.
-- **Lab:** you build it in a notebook. **Debrief:** the room compares results and states the decision.
+In the **briefing**, we develop the idea and ask what could go wrong. In the **lab**, you use the method on data. In the **debrief**, you explain the result and make a business decision.
 
-::: {.tiles}
-1. **Predict** what a cell will show. Write it down.
-2. **Run** it.
-3. **Explain** the result, especially a surprise.
-4. **Check** it against a checkpoint, often against the known truth.
-:::
+Each exercise follows the same loop: **Predict**, **Run**, **Explain**, **Check**. Write a prediction before running code, then compare it with what happened.
 
 ## Working in the labs
 
-- Each exercise is a function **stub** with its **solution folded** beneath it. Try first; open the solution when you are stuck.
-- A **checkpoint** after each exercise passes or fails and says whose code it checked: yours or the reference.
-- Stuck on exercise N: run its solution cell, then [workshop.use_reference(N)]{.checkpoint} (Python) or [use_reference(N)]{.checkpoint} (R), and carry on.
-- **Run all** stops at the first exercise you have not written. `WORKED_EXAMPLE` runs the whole lab on the reference solutions.
-- The **stretch** section at the end is optional. Nothing later depends on it.
+- Each exercise starts with a function to complete. Try it, then open the folded solution if you get stuck.
+- A **checkpoint** checks your result and gives a recovery message when it fails.
+- To move on, use `workshop.use_reference(N)` in Python or `use_reference(N)` in R for exercise N.
+- **Run all** stops at the first unfinished exercise. `WORKED_EXAMPLE` runs the reference solutions for a demonstration.
+- The final **Decision** cell turns results into a recommendation. Stretch work is optional.
 
-## The honesty rules
+## How we check our claims
 
-- **The readiness page says what has run.** Where, when, with which settings. A run time appears only if a run record exists, and a laptop or CI run is never shown as a Colab run.
-- **Ground truth first.** Synthetic data come from seeded generators with known parameters. Checkpoints compare your estimate with the truth using a named interval, such as a 94% highest density interval.
-- **No invented facts.** Every reference was fetched and is dated. No made-up statistics, people or quotes. When we do not know, we say so.
+- **Known truth:** generated data let us compare an estimate with the answer used to create the data.
+- **Later data:** a forecast must be checked on observations it did not use to fit the model.
+- **Uncertainty:** an estimate needs a range or another honest account of how much it could vary.
+- **Run evidence:** the [Readiness](../readiness.qmd) page shows which notebooks actually ran, where and when.
 
-## Setup: nothing to install
+We will say when the evidence does not support a firm decision.
 
-- Every lab runs in **Google Colab**, in the browser. You need a Google account.
-- Most labs are Python; some modules add an **R notebook** where R has the reference implementation.
-- The install cell installs the package versions the labs were tested with. If it asks you to restart the session, restart, then **Run all** again.
-- Prefer your own machine? The [Setup](../setup.qmd) page covers the workshop's Docker image.
+## Getting started
 
-## Logistics
+- Open the [Notebooks](../notebooks.qmd) page and choose a lab. The notebooks run in Google Colab in a browser with a Google account.
+- Most labs use Python. Some add R to show a method with a reference implementation there.
+- Run the install cell first. If it asks for a restart, restart the session and run the notebook again.
+- The [Setup](../setup.qmd) page explains local Docker use. The [FAQ](../faq.qmd) covers common problems.
+- Each day begins at {{< var days.d1.start >}}. The [schedule](../schedule.qmd) lists breaks and lunch.
 
-- Each day starts at {{< var days.d1.start >}} with a warm-up and ends with a wrap-up; the breaks and lunch are on the [schedule](../schedule.qmd).
-- Days 2 and 3 have an afternoon clinic on that day's decision.
-- Day 5 ends with the capstone: pairs build one decision pipeline and present a short brief.
-
-**Where everything is**
-
-- The site: [{{< var repo.site >}}]({{< var repo.site >}}). [Notebooks](../notebooks.qmd): every lab, one click to Colab.
-- [FAQ](../faq.qmd) and [Readiness](../readiness.qmd): what to do when Colab misbehaves, and what has run where.
-
-## Next
+## First question
 
 ::: {.lead}
-Module 1 · {{< var modules.m01.title >}}
+{{< var days.d1.question >}}
 :::
 
-{{< var days.d1.question >}}
+We begin with {{< var modules.m01.title >}}: turning purchases into a customer table we can reason about.
