@@ -10,6 +10,7 @@ toc: false
 
 The [Module 9 briefing](../modules/09-mmm-calibration.qmd) gives the mechanism: in the workshop's **seeded synthetic data**, search spend rises in weeks when unobserved demand is strong. The uncalibrated MMM credits part of that demand to search. Two randomized search lift tests constrain the channel's return. This interactive traces the consequence for the *spend decision* as experimental evidence is introduced. The 3D chart shows the endpoints, the break-even line, and the known simulated truth. Drag to rotate.
 
+```{=html}
 <div class="causal-lab" data-lab="calibration">
   <div class="causal-controls">
     <label>Illustrative position between fitted endpoints <input id="evidence" type="range" min="0" max="100" step="1" value="0"><output id="evidence-out"></output></label>
@@ -19,6 +20,7 @@ The [Module 9 briefing](../modules/09-mmm-calibration.qmd) gives the mechanism: 
   <div class="causal-key"><span style="--key-color:#4ab9e5">Illustrative search ROAS path</span><span style="--key-color:#ffc66a">Break-even ROAS</span><span style="--key-color:#a4d97d">Known truth</span></div>
   <div class="causal-result" aria-live="polite"></div>
 </div>
+```
 
 **Read the chart.** Horizontal position moves from the uncalibrated fit to the fit with two search tests, height is sales dollars per media dollar, and depth separates the lines. The actual lab fits give search ROAS **5.38** before calibration and **3.07** after it; known synthetic truth is **3.00**. At 30% margin, break-even is **3.33**, so the fitted conclusion reverses. Positions between the endpoints are a straight-line teaching interpolation, not separately estimated models, uncertainty intervals, or a dose-response law. The page reports a point-estimate comparison; the module's final rule also considers posterior probability and fold stability.
 

@@ -10,6 +10,7 @@ toc: false
 
 The [Module 6 briefing](../modules/06-experiments.qmd) explains random assignment, uncertainty, and the cost of an offer. This example uses the **committed, seeded synthetic email experiment**, not customer data from a real retailer. In its observed arms, the difference in mean spend is a noisy estimate of the offer's incremental effect. The 3D chart places the lower confidence bound and point estimate of net margin across possible offer costs. Drag to rotate it.
 
+```{=html}
 <div class="causal-lab" data-lab="experiments">
   <div class="causal-controls">
     <label>People per arm, planning scenario <input id="n" type="range" min="500" max="10000" step="100" value="9900"><output id="n-out"></output></label>
@@ -20,6 +21,7 @@ The [Module 6 briefing](../modules/06-experiments.qmd) explains random assignmen
   <div class="causal-key"><span style="--key-color:#4ab9e5">Lower 95% bound</span><span style="--key-color:#ffc66a">Point estimate</span></div>
   <div class="causal-result" aria-live="polite"></div>
 </div>
+```
 
 **Read the chart.** The horizontal axis is offer cost from $0 to $1.40, height is nonnegative net margin, and depth separates the lower confidence bound from the point estimate. A bar disappearing at zero is the price at which that case stops paying. The sample-size control recomputes uncertainty with the *observed* arm standard deviations; it does not redraw customers or rerun the experiment. The rule is to roll out only when the lower 95% confidence bound of incremental margin exceeds zero. A 95% confidence interval describes a repeated-sampling procedure, not a 95% chance that this one interval contains the fixed effect.
 

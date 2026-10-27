@@ -10,6 +10,7 @@ toc: false
 
 The [Module 7 briefing](../modules/07-geo-experiments.qmd) introduces difference-in-differences and synthetic control. Here the **real** data are cigarette sales per person in California and other states, 1970–2000, from the Proposition 99 case. Choose one state and a pre-period cutoff. The comparison line is shifted by the *mean pre-period level gap* so its level is comparable with California; this is a teaching comparison, not a fitted synthetic control. The 3D lines separate observed California from the shifted donor. Drag to rotate.
 
+```{=html}
 <div class="causal-lab" data-lab="geo">
   <div class="causal-controls">
     <label>Comparison state <select id="donor"><option>Nevada</option><option>Utah</option><option>Colorado</option><option>Idaho</option></select></label>
@@ -19,6 +20,7 @@ The [Module 7 briefing](../modules/07-geo-experiments.qmd) introduces difference
   <div class="causal-key"><span style="--key-color:#4ab9e5">California observed</span><span style="--key-color:#ffc66a">Shifted comparison state</span></div>
   <div class="causal-result" aria-live="polite"></div>
 </div>
+```
 
 **Read the chart.** Horizontal position is year, height is packs per person, and depth separates the two series. A large post-1988 gap is a question to investigate. One donor may have its own tobacco policy, demography, or changing trend. The full lab fits a weighted synthetic control to pre-1989 outcomes, checks pre-period fit, and compares placebo states before discussing the policy's possible effect. Changing the cutoff here shows how a future outcome can accidentally enter a supposed pre-period if timing is careless.
 
