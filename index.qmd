@@ -30,6 +30,32 @@ Five days from a raw transaction log to a budget and a target list. You find out
 {{< include /_includes/readiness-summary.md >}}
 :::
 
+## Explore the models {#explore}
+
+::: {.section-lede}
+Change an assumption and see how it moves a marketing decision. These browser explorations pair a three-dimensional view with numbers you can read directly. Start with one below, or [browse all interactive companions](interactives/index.qmd).
+:::
+
+::: {.interactive-grid}
+::: {.interactive-card}
+[Customer activity](interactives/02-btyd.qmd){.interactive-card-title}
+
+Switch between purchase models and change the win-back threshold to see which customer groups qualify.
+:::
+
+::: {.interactive-card}
+[Marketing budgets](interactives/10-budget-allocation.qmd){.interactive-card-title}
+
+Move the weekly budget and the weight on future customer value to see how spending shifts across channels.
+:::
+
+::: {.interactive-card}
+[Offer targeting](interactives/11-uplift.qmd){.interactive-card-title}
+
+Change the email cost and compare which observed customer groups clear the targeting threshold.
+:::
+:::
+
 ## The five days {#days}
 
 ::: {.section-lede}

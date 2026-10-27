@@ -2063,6 +2063,40 @@ body.landing {
 }
 
 // The days, one card each (generated: _includes/days.md).
+.interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 1.2rem;
+}
+
+.interactive-card {
+  padding: 1.1rem 1.15rem;
+  border: 1px solid $ms-border;
+  border-top: 3px solid $ms-accent;
+  border-radius: 10px;
+  background: $ms-raised;
+
+  .interactive-card-title {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $ms-heading;
+    font-family: $headings-font-family;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: $ms-link;
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
 .day-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));

@@ -79,6 +79,8 @@ website:
         text: Start here
       - href: schedule.qmd
         text: Schedule
+      - href: interactives/index.qmd
+        text: Explore
       - text: Days
         menu:
           # Module 0 is optional pre-work. Each day reads days.dN.label + " · " + days.dN.title,
