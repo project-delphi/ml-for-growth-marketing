@@ -12,6 +12,8 @@ title: "{{< var modules.m02.title >}}"
 
 {{< include /_includes/lab-02.md >}}
 
+[Explore this model interactively](../interactives/02-btyd.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. From a rule to a model
 
 The recency rule asks one question of each customer: how long since the last purchase? A model can ask a better one: *given how often this customer used to buy, how surprising is their silence?* A customer who bought weekly and has been silent for two months has probably gone. A customer who buys twice a year and has been silent for two months is behaving normally.

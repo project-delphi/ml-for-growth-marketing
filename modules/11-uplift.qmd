@@ -12,6 +12,8 @@ title: "{{< var modules.m11.title >}}"
 
 {{< include /_includes/lab-11.md >}}
 
+[Explore this model interactively](../interactives/11-uplift.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. Who buys, and who buys because of the offer
 
 **Objective for this section:** explain why predicting who buys is not the same as predicting who buys because of the offer (uplift).

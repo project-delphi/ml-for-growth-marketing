@@ -54,7 +54,7 @@ async function init() {
   });
   const resize = new ResizeObserver(() => {
     const width = Math.max(200, viz.clientWidth), height = Math.max(200, viz.clientHeight);
-    renderer.setSize(width, height, false); camera.aspect = width / height; camera.updateProjectionMatrix(); render();
+    renderer.setSize(width, height); camera.aspect = width / height; camera.updateProjectionMatrix(); render();
   });
   resize.observe(viz);
   const material = color => new THREE.MeshStandardMaterial({ color, roughness: .65 });

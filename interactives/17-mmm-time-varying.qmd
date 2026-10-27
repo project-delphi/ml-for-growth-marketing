@@ -4,7 +4,7 @@ subtitle: "The same channel over all three years and the last quarter"
 page-layout: full
 ---
 
-[Back to the module](../modules/17-mmm-time-varying.qmd) · [All interactive concepts](../interactives.qmd)
+[Back to the module](../modules/17-mmm-time-varying.qmd) · [All interactive concepts](index.qmd)
 
 ## A good historical average can hide a bad current return
 

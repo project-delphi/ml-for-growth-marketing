@@ -9,6 +9,7 @@ css: customer-assets/customer.css
 
 **Try this:** remove the channel effect, then change social's dropout rate. Each pair of bars shows forecast (blue) and observed (orange) purchases per acquired customer over the next 13 weeks. The groups are search, social, referral from left to right. Drag to rotate.
 
+```{=html}
 <div class="customer-lab" data-page="03">
   <div class="lab-controls">
     <label for="channel-effect">Use channel-specific rates <input id="channel-effect" type="checkbox" checked></label>
@@ -19,6 +20,7 @@ css: customer-assets/customer.css
   <p class="viz-note">Left to right: search, social, referral. Height: purchases per acquired customer in 13 weeks.</p>
   <div class="readout" aria-live="polite">Loading the retailer aggregate…</div>
 </div>
+```
 <script type="module" src="customer-assets/customer.js"></script>
 
 ## Why the choice matters

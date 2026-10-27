@@ -20,7 +20,7 @@ Five days from a raw transaction log to a budget and a target list. You find out
 :::
 
 ::: {.hero-actions}
-[Start here](prepare.qmd){.btn-primary-action} [Intro slides](slides/welcome.qmd) [See the schedule](schedule.qmd) [Open the notebooks](notebooks.qmd)
+[Start here](prepare.qmd){.btn-primary-action} [Explore the models](interactives/index.qmd) [Intro slides](slides/welcome.qmd) [See the schedule](schedule.qmd) [Open the notebooks](notebooks.qmd)
 :::
 
 {{< include /_includes/facts.md >}}
@@ -106,7 +106,7 @@ You need a Google account for Colab and a current browser on a laptop. Labs run 
 ## How each module works {#modules}
 
 ::: {.prose}
-Each module is a **briefing** that motivates and derives the method, a **lab** in which you build it in a Colab notebook, and a short **debrief** in which the room compares results and states the decision. The times for each module are on the [schedule](schedule.qmd).
+Each module is a **briefing** that motivates and derives the method, a **lab** in which you build it in a Colab notebook, and a short **debrief** in which the room compares results and states the decision. The [interactive companions](interactives/index.qmd) let you change model assumptions and inspect the effect on a decision before running the lab. The times for each module are on the [schedule](schedule.qmd).
 :::
 
 Every lab follows one rhythm:

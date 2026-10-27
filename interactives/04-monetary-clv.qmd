@@ -9,6 +9,7 @@ css: customer-assets/customer.css
 
 **Try this:** change the value horizon, monthly discount rate, and contribution margin. The bars show expected discounted margin per acquired customer from the current synthetic retailer base. Search, social, and referral appear left to right. Drag to rotate.
 
+```{=html}
 <div class="customer-lab" data-page="04">
   <div class="lab-controls">
     <label for="horizon">Months ahead <span data-value-for="horizon">12</span><input id="horizon" type="range" min="3" max="24" step="3" value="12"></label>
@@ -20,6 +21,7 @@ css: customer-assets/customer.css
   <p class="viz-note">Left to right: search, social, referral. Height: discounted expected margin per acquired customer.</p>
   <div class="readout" aria-live="polite">Loading the retailer aggregate…</div>
 </div>
+```
 <script type="module" src="customer-assets/customer.js"></script>
 
 ## How to use this result

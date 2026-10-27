@@ -12,6 +12,8 @@ title: "{{< var modules.m01.title >}}"
 
 {{< include /_includes/lab-01.md >}}
 
+[Explore this model interactively](../interactives/01-customer-base.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. The question: who is still a customer?
 
 A subscription business knows when a customer leaves: they cancel. An online shop does not. Its customers buy when they want and stop without telling anyone. This is the **non-contractual** setting, and it is the one this week is about until Module 4's short detour into subscriptions.

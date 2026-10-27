@@ -12,6 +12,8 @@ title: "{{< var modules.m05.title >}}"
 
 {{< include /_includes/lab-05.md >}}
 
+[Explore this model interactively](../interactives/05-clv-decisions.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. From a value to a decision
 
 Every decision in this module has the same shape: a quantity computed from the posterior, a rule stated before the quantity is read, and a recommendation that carries the uncertainty. Three habits make that work.

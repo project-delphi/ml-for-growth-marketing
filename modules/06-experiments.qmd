@@ -12,6 +12,8 @@ title: "{{< var modules.m06.title >}}"
 
 {{< include /_includes/lab-06.md >}}
 
+[Explore this model interactively](../interactives/06-experiments.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. Why randomize
 
 A **randomized experiment** (an A/B test) assigns each customer at random to **treatment** (here: gets the email) or **control** (does not). Because a coin decides who gets the email, the two groups are alike, on average, in everything else: past spend, channel, how recently they bought, things nobody measured. So the difference in their outcomes estimates the email's effect, and nothing else.

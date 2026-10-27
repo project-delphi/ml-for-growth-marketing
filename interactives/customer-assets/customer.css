@@ -2,7 +2,7 @@
 .customer-lab .lab-controls { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: end; margin-bottom: 1rem; }
 .customer-lab label { display: grid; gap: .35rem; min-width: 11rem; font-weight: 600; }
 .customer-lab input, .customer-lab select { max-width: 15rem; }
-.customer-lab .viz { width: 100%; height: min(55vw, 390px); min-height: 250px; border-radius: .45rem; background: color-mix(in srgb, var(--bs-body-bg), var(--bs-secondary-bg) 60%); touch-action: none; }
+.customer-lab .viz { width: 100%; height: min(55vw, 390px); min-height: 250px; overflow: hidden; border-radius: .45rem; background: color-mix(in srgb, var(--bs-body-bg), var(--bs-secondary-bg) 60%); touch-action: none; }
 .customer-lab .readout { margin-top: .7rem; padding: .8rem; border-left: .25rem solid var(--bs-primary); background: var(--bs-secondary-bg); }
 .customer-lab .readout p { margin: 0 0 .4rem; }
 .customer-lab .readout p:last-child { margin-bottom: 0; }

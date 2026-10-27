@@ -9,6 +9,7 @@ css: customer-assets/customer.css
 
 **Try this:** move the silence cutoff. The blocks group 2,357 real CDNOW customers by repeat-purchase frequency (left to right) and weeks since their last purchase (front to back). Block height is the number of customers. Orange cells would be labelled “churned”; blue cells would not. Drag the chart to rotate it.
 
+```{=html}
 <div class="customer-lab" data-page="01">
   <div class="lab-controls"><label for="cutoff">Flag after weeks without a purchase <span data-value-for="cutoff">12</span><input id="cutoff" type="range" min="4" max="40" step="4" value="12"></label></div>
   <div class="viz" tabindex="0" role="img" aria-label="Three-dimensional CDNOW customer counts by repeat-purchase frequency and weeks since last purchase; orange cells are flagged by the cutoff."></div>
@@ -16,6 +17,7 @@ css: customer-assets/customer.css
   <p class="viz-note">Left to right: 0, 1, 2–3, 4–7, 8+ repeat purchase days. Front to back: 0–4, 4–12, 12–24, 24–40, 40+ weeks of silence. Height: customers.</p>
   <div class="readout" aria-live="polite">Loading the CDNOW aggregate…</div>
 </div>
+```
 <script type="module" src="customer-assets/customer.js"></script>
 
 ## What the rule changes

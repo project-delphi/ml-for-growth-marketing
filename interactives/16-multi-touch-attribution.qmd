@@ -4,7 +4,7 @@ subtitle: "Journey credit versus incremental conversions"
 page-layout: full
 ---
 
-[Back to the module](../modules/16-multi-touch-attribution.qmd) · [All interactive concepts](../interactives.qmd)
+[Back to the module](../modules/16-multi-touch-attribution.qmd) · [All interactive concepts](index.qmd)
 
 ## Which channel earned a conversion?
 

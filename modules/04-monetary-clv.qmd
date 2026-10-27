@@ -12,6 +12,8 @@ title: "{{< var modules.m04.title >}}"
 
 {{< include /_includes/lab-04.md >}}
 
+[Explore this model interactively](../interactives/04-monetary-clv.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. What we mean by customer lifetime value
 
 **Customer lifetime value (CLV)** in this workshop is the present value of what a customer will spend over a stated horizon. Three choices hide in that sentence, and each changes the number:

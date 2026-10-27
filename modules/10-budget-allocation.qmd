@@ -12,6 +12,8 @@ title: "{{< var modules.m10.title >}}"
 
 {{< include /_includes/lab-10.md >}}
 
+[Explore this model interactively](../interactives/10-budget-allocation.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. The planning problem
 
 The planner's facts, as finance would supply them (from the synthetic truth file):

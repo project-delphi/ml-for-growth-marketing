@@ -4,7 +4,7 @@ subtitle: "Why more opens can leave fewer reachable users"
 page-layout: full
 ---
 
-[Back to the module](../modules/18-notifications.qmd) · [All interactive concepts](../interactives.qmd)
+[Back to the module](../modules/18-notifications.qmd) · [All interactive concepts](index.qmd)
 
 ## Pick a cadence and a horizon
 

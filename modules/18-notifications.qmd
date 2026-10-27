@@ -12,6 +12,8 @@ title: "{{< var modules.m18.title >}}"
 
 {{< include /_includes/lab-18.md >}}
 
+[Explore this model interactively](../interactives/18-notifications.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ::: {.callout-note appearance="simple"}
 **Where this lab has run.** In worked mode with full settings (all 20,000 users) on 2026-10-16, Run all took 11.8 s on an Apple Silicon laptop (native Python 3.13.2) and 14.0 s in the workshop's Docker image (linux/arm64, two CPUs, on the same laptop) ([run records]({{< var repo.url >}}/tree/main/runs)). Neither is a Colab time. No Colab run exists yet: the notebook is not in `v2026.10.2`, the version Colab opens, so it shows "Colab after the next release" until the next tag. The [Readiness](/readiness.qmd#extensions) page shows its current status. Every number on this page comes from that laptop run or from `data/synthetic/truth_notifications.json`.
 :::

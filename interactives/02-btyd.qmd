@@ -9,6 +9,7 @@ css: customer-assets/customer.css
 
 **Try this:** switch models, then change the probability threshold for a win-back campaign. The blocks are the same real CDNOW customer groups as Module 1. Orange cells fall below the chosen probability that a customer is still buying; blue cells stay above it. Height is the number of customers. Drag to rotate.
 
+```{=html}
 <div class="customer-lab" data-page="02">
   <div class="lab-controls">
     <label for="model">Customer model<select id="model"><option value="bgnbd">BG/NBD, fitted CDNOW parameters</option><option value="pareto">Pareto/NBD, illustrative rates</option></select></label>
@@ -19,6 +20,7 @@ css: customer-assets/customer.css
   <p class="viz-note">Left to right: 0, 1, 2–3, 4–7, 8+ repeat purchase days. Front to back: 0–4, 4–12, 12–24, 24–40, 40+ weeks of silence. Height: customers.</p>
   <div class="readout" aria-live="polite">Loading the CDNOW aggregate…</div>
 </div>
+```
 <script type="module" src="customer-assets/customer.js"></script>
 
 ## Read the consequence

@@ -12,6 +12,8 @@ title: "{{< var modules.m07.title >}}"
 
 {{< include /_includes/lab-07.md >}}
 
+[Explore this model interactively](../interactives/07-geo-experiments.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. Geo tests and the missing counterfactual
 
 The retailer ran a regional campaign in 8 of its 40 sales regions, called **geos**, for ten weeks in late 2025. The other 32 geos did not get it. The data are a panel of weekly sales: 40 geos by 104 weeks, with a 94-week **pre-period** before the **test window** of 2025-10-20 to 2025-12-22.

@@ -12,6 +12,8 @@ title: "{{< var modules.m03.title >}}"
 
 {{< include /_includes/lab-03.md >}}
 
+[Explore this model interactively](../interactives/03-covariates-and-ml.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. Two questions a marketer asks next
 
 A marketing team that has seen Module 2's output asks two things.

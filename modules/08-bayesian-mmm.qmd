@@ -12,6 +12,8 @@ title: "{{< var modules.m08.title >}}"
 
 {{< include /_includes/lab-08.md >}}
 
+[Explore this model interactively](../interactives/08-bayesian-mmm.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ## 1. What a marketing mix model is for
 
 A **marketing mix model** (MMM) explains weekly sales with a **baseline** (trend, seasonality, price, holidays) plus one term per media channel. It uses aggregate data that every business has (sales and spend by week), not customer-level tracking. Its outputs are the inputs to budgeting:

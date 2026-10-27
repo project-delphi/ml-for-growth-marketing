@@ -4,7 +4,7 @@ subtitle: "How a cleaning choice changes a contact list"
 page-layout: full
 ---
 
-[Back to the module](../modules/13-messy-real-data.qmd) · [All interactive concepts](../interactives.qmd)
+[Back to the module](../modules/13-messy-real-data.qmd) · [All interactive concepts](index.qmd)
 
 ## One list, several definitions of a purchase
 

@@ -3,6 +3,14 @@
 Each entry: what was decided, why, and the evidence (a command, a run, a URL with the date it was read).
 Newest first within each section.
 
+## Interactive model companions
+
+### A browser exploration before each model lab (2026-10-27)
+- The user asked for an interactive section and a Three.js page for each model or concept. Modules 1–11 and 13–18 now have companion pages under `interactives/`; Module 0 is setup and Module 12 is the capstone that combines the decisions. The section is linked from Home, the Days menu, and each module briefing.
+- The pages use three-dimensional views to show how observations, model assumptions, or decision thresholds change an action. Controls update a numeric readout; the extension pages also show exact-value tables. The visual is an aid to inspection, not a new model fit. Each page distinguishes observed data, a seeded simulation, and an illustrative assumption. CDNOW and Hillstrom aggregates are derived from the workshop's verified loaders; Prop 99 and the sBG counts are committed real data; the retailer, MMM, email, and notification examples use the committed synthetic generators and truth files.
+- Three.js `0.186.1` is pinned in `_variables.yml` and vendored as `three.module.js` plus its relative `three.core.js` import, with package licence and SHA-256 checksums. Both files came from the same jsDelivr npm package path on 2026-10-27. The [official installation guide](https://threejs.org/manual/pages/installation.html) describes ES module imports; the [npm version list](https://www.npmjs.com/package/three?activeTab=versions) confirmed the package version on that date. Local hosting avoids a CDN dependency during class.
+- Work was split into three worktrees by curriculum area and integrated after review. Full-site Quarto rendering, generated-table drift checks, and browser control tests are the release checks for these pages. No notebook code or run records changed; a companion's scenario is not evidence that its lab ran.
+
 ## Name and scope
 
 ### Renamed to "Machine Learning for Growth Marketing" (2026-10-16)

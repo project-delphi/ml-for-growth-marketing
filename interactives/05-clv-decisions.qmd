@@ -9,6 +9,7 @@ css: customer-assets/customer.css
 
 **Try this:** choose an acquisition channel and a risk rule, then move its proposed customer acquisition cost (CAC). The blue bar is the cap from the lab's fitted customer-value model; the orange bar is the cost you propose. Drag to rotate.
 
+```{=html}
 <div class="customer-lab" data-page="05">
   <div class="lab-controls">
     <label for="cac-channel">Channel<select id="cac-channel"><option value="search">Search</option><option value="social">Social</option><option value="referral">Referral</option></select></label>
@@ -20,6 +21,7 @@ css: customer-assets/customer.css
   <p class="viz-note">Height: dollars per acquired customer. The taller bar determines whether acquisition clears the chosen rule.</p>
   <div class="readout" aria-live="polite">Loading the acquisition-cost scenario…</div>
 </div>
+```
 <script type="module" src="customer-assets/customer.js"></script>
 
 ## The downstream decision

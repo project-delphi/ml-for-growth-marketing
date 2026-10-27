@@ -12,6 +12,8 @@ title: "{{< var modules.m14.title >}}"
 
 {{< include /_includes/lab-14.md >}}
 
+[Explore this model interactively](../interactives/14-survival-churn.qmd) before the lab: change an assumption, inspect the data, and see how the decision moves.
+
 ::: {.callout-note appearance="simple"}
 **Where this lab has run.** In worked mode with full settings on 2026-10-11, Run all took 9.2 s on an Apple Silicon laptop (native Python) and 11.7 s in the workshop's Docker image (linux/arm64, limited to two CPUs, also on an Apple Silicon laptop) ([run records]({{< var repo.url >}}/tree/main/runs)). Neither is a Colab time. On Colab (worked, full settings, 2026-10-11, at `v2026.10.2`), Run all took 39.1 s after a 23.9 s install. The [Readiness](/readiness.qmd#extensions) page shows its current status.
 :::

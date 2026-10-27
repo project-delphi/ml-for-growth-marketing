@@ -1,0 +1,40 @@
+---
+title: "Explore the models"
+description: "Change a model assumption, inspect the data in three dimensions, and see what happens to a marketing decision."
+---
+
+Each page starts with a specific dataset, shows what the model uses, and lets you change one assumption at a time. The three-dimensional view is paired with numbers and a decision statement, so the result remains readable without depth perception. The source note on each page distinguishes observed data from a simulation. These are teaching demonstrations; the full notebooks fit and check the models.
+
+## Customers and value
+
+| Interactive companion | Decision to inspect |
+|---|---|
+| [{{< var modules.m01.title >}}](01-customer-base.qmd) | Which silent customers need a second look? |
+| [{{< var modules.m02.title >}}](02-btyd.qmd) | Whom does a purchase model still count as active? |
+| [{{< var modules.m03.title >}}](03-covariates-and-ml.qmd) | When does adding customer context change the ranking? |
+| [{{< var modules.m04.title >}}](04-monetary-clv.qmd) | How do spend and horizon change value? |
+| [{{< var modules.m05.title >}}](05-clv-decisions.qmd) | Which acquisition or retention action clears its cost? |
+
+## Causal effects and budgets
+
+| Interactive companion | Decision to inspect |
+|---|---|
+| [{{< var modules.m06.title >}}](06-experiments.qmd) | Is the test precise enough to act on? |
+| [{{< var modules.m07.title >}}](07-geo-experiments.qmd) | How does the counterfactual change estimated lift? |
+| [{{< var modules.m08.title >}}](08-bayesian-mmm.qmd) | Which spend level is on the useful part of a response curve? |
+| [{{< var modules.m09.title >}}](09-mmm-calibration.qmd) | Does a lift test change the channel ranking? |
+| [{{< var modules.m10.title >}}](10-budget-allocation.qmd) | Where should the next dollar go under constraints? |
+
+## Targeting and extensions
+
+| Interactive companion | Decision to inspect |
+|---|---|
+| [{{< var modules.m11.title >}}](11-uplift.qmd) | Whom should an offer target after its cost? |
+| [{{< var modules.m13.title >}}](13-messy-real-data.qmd) | Which cleaning choices change a customer model? |
+| [{{< var modules.m14.title >}}](14-survival-churn.qmd) | Whose expected remaining value justifies a call? |
+| [{{< var modules.m15.title >}}](15-double-ml.qmd) | What happens when selection is adjusted for? |
+| [{{< var modules.m16.title >}}](16-multi-touch-attribution.qmd) | Does touch credit agree with incremental value? |
+| [{{< var modules.m17.title >}}](17-mmm-time-varying.qmd) | What if a channel's effect drifts? |
+| [{{< var modules.m18.title >}}](18-notifications.qmd) | Which send policy protects long-run value? |
+
+The [capstone](/modules/12-capstone.qmd) combines these choices into one decision pipeline. Its notebook is the place to make the final recommendation.

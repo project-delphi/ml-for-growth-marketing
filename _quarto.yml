@@ -26,6 +26,7 @@ project:
     # The optional extension track (days.d6, track: extensions): its page, no timetable.
     - extensions.qmd
     - modules/*.qmd
+    - interactives/*.qmd
     - notebooks.qmd
     - references.qmd
     # What changed recently in growth marketing, with sources (reviewed each release).
@@ -44,6 +45,12 @@ project:
     - /labs/python/*.ipynb
     - /labs/r/*.ipynb
     - /fonts/**
+    - /interactives/**/*.js
+    - /interactives/**/*.css
+    - /interactives/**/*.csv
+    - /interactives/**/*.json
+    - /data/real/*.csv
+    - /data/synthetic/*.csv
 
 # website.sidebar (the modules grouped by day) is generated from _variables.yml.
 metadata-files:
@@ -90,6 +97,8 @@ website:
             text: "Day 5 · Targeting and the plan"
           - href: extensions.qmd
             text: "Extensions · Beyond the core week"
+          - href: interactives/index.qmd
+            text: "Interactive models · Explore the decisions"
       - href: notebooks.qmd
         text: Notebooks
       - href: references.qmd
