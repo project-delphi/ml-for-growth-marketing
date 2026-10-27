@@ -1,0 +1,13 @@
+.causal-lab { border: 1px solid var(--bs-border-color); border-radius: .75rem; padding: 1rem; background: var(--bs-body-bg); }
+.causal-controls { display: flex; flex-wrap: wrap; gap: .9rem 1.4rem; margin-bottom: .8rem; }
+.causal-controls label { display: grid; gap: .2rem; min-width: min(100%, 12rem); font-weight: 600; }
+.causal-controls input, .causal-controls select { width: 100%; }
+.causal-plot { width: 100%; height: 320px; background: #17243c; border-radius: .45rem; position: relative; overflow: hidden; }
+.causal-plot canvas { display: block; width: 100%; height: 100%; }
+.causal-plot-error { color: #fff; padding: 1rem; }
+.causal-result { border-left: 4px solid #367bb4; padding: .55rem .8rem; margin: .85rem 0; background: rgba(66, 145, 203, .10); }
+.causal-result p { margin: .2rem 0; }
+.causal-key { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .9rem; }
+.causal-key span::before { content: ''; display: inline-block; width: .7rem; height: .7rem; margin-right: .3rem; border-radius: 50%; background: var(--key-color); }
+.causal-note { font-size: .9rem; }
+@media (max-width: 520px) { .causal-plot { height: 260px; } }

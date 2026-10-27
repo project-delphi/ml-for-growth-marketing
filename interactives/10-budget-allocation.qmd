@@ -1,0 +1,27 @@
+---
+title: "Interactive · {{< var modules.m10.title >}}"
+page-layout: full
+toc: false
+---
+
+<link rel="stylesheet" href="causal-assets/lab.css">
+
+## How diminishing returns move a fixed budget
+
+The [Module 10 briefing](../modules/10-budget-allocation.qmd) turns channel response curves into a weekly spending plan. This example uses the **synthetic retailer's known true curves and business bounds** so that changing the budget has an interpretable answer. The 3D lines are the four channels' weekly sales responses as spend rises across each allowed range. The optimizer shifts dollars toward the channel with the best next dollar until a bound or equal marginal return stops it. Drag to rotate.
+
+<div class="causal-lab" data-lab="allocation">
+  <div class="causal-controls">
+    <label>Weekly media budget <input id="budget" type="range" min="50" max="95" step="1" value="72"><output id="budget-out"></output></label>
+    <label>Weight on future customer margin <input id="clv" type="range" min="0" max="100" step="5" value="0"><output id="clv-out"></output></label>
+  </div>
+  <div class="causal-plot" role="img" aria-label="Three-dimensional response curves for four media channels"></div>
+  <div class="causal-key"><span style="--key-color:#4ab9e5">TV</span><span style="--key-color:#ffc66a">Search</span><span style="--key-color:#a4d97d">Social</span><span style="--key-color:#d99eff">Display</span></div>
+  <div class="causal-result" aria-live="polite"></div>
+</div>
+
+**Read the chart.** Horizontal position is the share of each channel's allowed spend range, height is weekly sales attributed to the channel, and depth separates channels. The white dot on each curve marks the chosen allocation. A flat part of a curve means the next dollar adds little. Future customer margin is added only after short-run sales are multiplied by the retailer's 30% gross margin, so the first sale is not counted twice. The browser allocates in $20 steps within fixed channel bounds; the exact lab uses continuous optimization and posterior draws. The “future value” inputs here come from the synthetic world's truth file, and should be measured before they guide a real plan.
+
+**Source:** response parameters, bounds, current plan, and channel customer values in [`truth.json`](../data/synthetic/truth.json), generated with [`mmm_weekly.csv`](../data/synthetic/mmm_weekly.csv). A changed budget is a scenario on those same curves, not a refitted model or measured outcome.
+
+<script type="module" src="causal-assets/lab.js"></script>

@@ -1,0 +1,28 @@
+---
+title: "Interactive · {{< var modules.m08.title >}}"
+page-layout: full
+toc: false
+---
+
+<link rel="stylesheet" href="causal-assets/lab.css">
+
+## Spend becomes sales through memory and saturation
+
+The [Module 8 briefing](../modules/08-bayesian-mmm.qmd) defines a marketing mix model (MMM), adstock, and saturation. This example uses the workshop's **seeded synthetic weekly retailer data**. Pick a channel, change the assumed memory of its ads, and change how quickly extra spend reaches diminishing returns. The blue line is the committed spend series; the orange line is the contribution calculated from that spend and your parameters. The 3D separation keeps the two units distinct. Drag to rotate.
+
+<div class="causal-lab" data-lab="mmm">
+  <div class="causal-controls">
+    <label>Media channel <select id="channel"><option value="tv">TV</option><option value="search">Search</option><option value="social">Social</option><option value="display">Display</option></select></label>
+    <label>Adstock decay <input id="alpha" type="range" min="0" max="90" step="1" value="60"><output id="alpha-out"></output></label>
+    <label>Saturation strength <input id="lambda" type="range" min="5" max="50" step="1" value="15"><output id="lambda-out"></output></label>
+  </div>
+  <div class="causal-plot" role="img" aria-label="Three-dimensional weekly media spend and calculated sales contribution"></div>
+  <div class="causal-key"><span style="--key-color:#4ab9e5">Spend, dollars</span><span style="--key-color:#ffc66a">Calculated sales contribution, dollars</span></div>
+  <div class="causal-result" aria-live="polite"></div>
+</div>
+
+**Read the chart.** Horizontal position is week (every fourth week shown), height is dollars, and depth separates spend from model contribution. Normalized geometric adstock spreads a week's spend over eight weeks; the weights sum to one. Saturation is the chapter's logistic curve. The reported return on ad spend (ROAS) is all 156 calculated weekly contributions divided by all 156 weekly spends. A 30% gross margin requires ROAS above 3.33 for short-run sales to cover spend. Change both controls and watch whether that decision flips. The controls create parameter *scenarios*; they do not refit the Bayesian posterior or change observed sales.
+
+**Source:** [`data/synthetic/mmm_weekly.csv`](../data/synthetic/mmm_weekly.csv) and the generator parameters in [`truth.json`](../data/synthetic/truth.json). Values come from a known-truth simulation, not an observed business.
+
+<script type="module" src="causal-assets/lab.js"></script>
