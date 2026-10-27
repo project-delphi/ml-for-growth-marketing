@@ -1,0 +1,29 @@
+---
+title: "Explore {{< var modules.m05.title >}}"
+css: customer-assets/customer.css
+---
+
+[Back to Module 5](../modules/05-clv-decisions.qmd) · [Open the lab](../notebooks.qmd)
+
+## Turn customer value into a CAC limit
+
+**Try this:** choose an acquisition channel and a risk rule, then move its proposed customer acquisition cost (CAC). The blue bar is the cap from the lab's fitted customer-value model; the orange bar is the cost you propose. Drag to rotate.
+
+<div class="customer-lab" data-page="05">
+  <div class="lab-controls">
+    <label for="cac-channel">Channel<select id="cac-channel"><option value="search">Search</option><option value="social">Social</option><option value="referral">Referral</option></select></label>
+    <label for="risk-rule">Value rule<select id="risk-rule"><option value="mean">Posterior mean</option><option value="lower">20th percentile</option></select></label>
+    <label for="cac">Proposed average CAC $<span data-value-for="cac">45</span><input id="cac" type="range" min="10" max="90" step="1" value="45"></label>
+  </div>
+  <div class="viz" tabindex="0" role="img" aria-label="Three-dimensional comparison of modeled acquisition cost cap and proposed average customer acquisition cost."></div>
+  <div class="chart-key"><span style="--key-color:#398eaa">CAC cap</span><span style="--key-color:#e08a49">Proposed average CAC</span></div>
+  <p class="viz-note">Height: dollars per acquired customer. The taller bar determines whether acquisition clears the chosen rule.</p>
+  <div class="readout" aria-live="polite">Loading the acquisition-cost scenario…</div>
+</div>
+<script type="module" src="customer-assets/customer.js"></script>
+
+## The downstream decision
+
+The mean rule treats average modeled value as the spending limit. The 20th-percentile rule uses a lower value from the fitted posterior, leaving more room for model uncertainty. If proposed average CAC exceeds the selected cap, the acquisition plan fails that rule. This is a **unit-economics screen**: it does not prove the channel caused these customers to acquire, or that the next customer can be bought at the current average cost.
+
+**Data:** the [Module 5 FULL-run CAC cap table](../modules/05-clv-decisions.qmd), fitted to the [seeded synthetic retailer](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/README.md). The caps are measured outputs from that recorded lab run; moving CAC is a business assumption and does not refit the posterior. The module explains the 94% highest-density intervals and the causal assumptions behind the recommendation.

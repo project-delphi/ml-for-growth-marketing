@@ -1,0 +1,28 @@
+---
+title: "Explore {{< var modules.m02.title >}}"
+css: customer-assets/customer.css
+---
+
+[Back to Module 2](../modules/02-btyd.qmd) · [Open the lab](../notebooks.qmd)
+
+## The same silence means different things to different models
+
+**Try this:** switch models, then change the probability threshold for a win-back campaign. The blocks are the same real CDNOW customer groups as Module 1. Orange cells fall below the chosen probability that a customer is still buying; blue cells stay above it. Height is the number of customers. Drag to rotate.
+
+<div class="customer-lab" data-page="02">
+  <div class="lab-controls">
+    <label for="model">Customer model<select id="model"><option value="bgnbd">BG/NBD, fitted CDNOW parameters</option><option value="pareto">Pareto/NBD, illustrative rates</option></select></label>
+    <label for="probability">Win-back if P(alive) below <span data-value-for="probability">40</span>%<input id="probability" type="range" min="10" max="90" step="10" value="40"></label>
+  </div>
+  <div class="viz" tabindex="0" role="img" aria-label="Three-dimensional CDNOW customer groups colored by whether estimated probability alive falls below the win-back threshold."></div>
+  <div class="chart-key"><span style="--key-color:#e08a49">Win-back audience</span><span style="--key-color:#398eaa">Other cells</span></div>
+  <p class="viz-note">Left to right: 0, 1, 2–3, 4–7, 8+ repeat purchase days. Front to back: 0–4, 4–12, 12–24, 24–40, 40+ weeks of silence. Height: customers.</p>
+  <div class="readout" aria-live="polite">Loading the CDNOW aggregate…</div>
+</div>
+<script type="module" src="customer-assets/customer.js"></script>
+
+## Read the consequence
+
+BG/NBD assumes a customer can leave only after buying. Someone with no repeat purchase therefore gets P(alive) = 1, even after a long silence. Pareto/NBD lets them leave at any time. A different threshold changes how many people receive the offer and how many later purchases lie in the selected cells. Those later purchases are a **holdout check**, not proof that the campaign caused a sale.
+
+**Data and model:** grouped [CDNOW transactions](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/README.md), calibrated through 1997-09-30. BG/NBD uses the published point estimates reproduced in the [Module 2 lab](../modules/02-btyd.qmd). The Pareto/NBD switch uses fixed rates of 0.05 purchases and 0.05 dropout events per week to isolate the mechanism; it is **not** the fitted CDNOW Pareto/NBD. Each probability is evaluated at its group's average history, so campaign counts are illustrative.

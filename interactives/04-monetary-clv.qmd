@@ -1,0 +1,29 @@
+---
+title: "Explore {{< var modules.m04.title >}}"
+css: customer-assets/customer.css
+---
+
+[Back to Module 4](../modules/04-monetary-clv.qmd) · [Open the lab](../notebooks.qmd)
+
+## A purchase forecast becomes a value forecast
+
+**Try this:** change the value horizon, monthly discount rate, and contribution margin. The bars show expected discounted margin per acquired customer from the current synthetic retailer base. Search, social, and referral appear left to right. Drag to rotate.
+
+<div class="customer-lab" data-page="04">
+  <div class="lab-controls">
+    <label for="horizon">Months ahead <span data-value-for="horizon">12</span><input id="horizon" type="range" min="3" max="24" step="3" value="12"></label>
+    <label for="discount">Monthly discount rate, tenths of a percent <span data-value-for="discount">8</span><input id="discount" type="range" min="0" max="30" step="2" value="8"></label>
+    <label for="margin">Contribution margin <span data-value-for="margin">30</span>%<input id="margin" type="range" min="10" max="70" step="5" value="30"></label>
+  </div>
+  <div class="viz" tabindex="0" role="img" aria-label="Three-dimensional bars for search, social, and referral customer lifetime margin under the selected assumptions."></div>
+  <div class="chart-key"><span style="--key-color:#398eaa">Search</span><span style="--key-color:#e08a49">Social</span><span style="--key-color:#7b69a8">Referral</span></div>
+  <p class="viz-note">Left to right: search, social, referral. Height: discounted expected margin per acquired customer.</p>
+  <div class="readout" aria-live="polite">Loading the retailer aggregate…</div>
+</div>
+<script type="module" src="customer-assets/customer.js"></script>
+
+## How to use this result
+
+A longer horizon adds purchases, while discounting shrinks the weight of distant purchases. The spend estimate matters as much as the purchase count: a high-frequency channel is not automatically the most valuable if baskets or margins differ. The highest bar is a candidate for a larger acquisition-cost cap; Module 5 asks whether its cost is low enough.
+
+**Data and limit:** the [seeded synthetic retailer](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/README.md). This browser calculation uses each channel's mean **known generator** purchase, dropout, and spend rates and the known share alive at calibration. It approximates monthly expected purchases and multiplies by margin. It is **not** the Module 4 Gamma-Gamma and BG/NBD posterior, so it has no credible interval. Use the lab for a fitted value with uncertainty.

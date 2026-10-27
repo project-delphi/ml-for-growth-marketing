@@ -1,0 +1,12 @@
+.customer-lab { border: 1px solid var(--bs-border-color); border-radius: .8rem; padding: 1rem; margin: 1rem 0 1.5rem; background: var(--bs-body-bg); }
+.customer-lab .lab-controls { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: end; margin-bottom: 1rem; }
+.customer-lab label { display: grid; gap: .35rem; min-width: 11rem; font-weight: 600; }
+.customer-lab input, .customer-lab select { max-width: 15rem; }
+.customer-lab .viz { width: 100%; height: min(55vw, 390px); min-height: 250px; border-radius: .45rem; background: color-mix(in srgb, var(--bs-body-bg), var(--bs-secondary-bg) 60%); touch-action: none; }
+.customer-lab .readout { margin-top: .7rem; padding: .8rem; border-left: .25rem solid var(--bs-primary); background: var(--bs-secondary-bg); }
+.customer-lab .readout p { margin: 0 0 .4rem; }
+.customer-lab .readout p:last-child { margin-bottom: 0; }
+.customer-lab .chart-key { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; font-size: .9rem; margin-top: .45rem; }
+.customer-lab .chart-key span::before { content: ''; display: inline-block; width: .8em; height: .8em; margin-right: .35em; border-radius: .2em; background: var(--key-color); }
+.customer-lab .viz-note { font-size: .9rem; margin: .35rem 0; }
+@media (max-width: 600px) { .customer-lab .lab-controls { display: block; } .customer-lab label { margin-bottom: .8rem; } }

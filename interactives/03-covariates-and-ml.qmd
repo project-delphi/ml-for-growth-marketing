@@ -1,0 +1,28 @@
+---
+title: "Explore {{< var modules.m03.title >}}"
+css: customer-assets/customer.css
+---
+
+[Back to Module 3](../modules/03-covariates-and-ml.qmd) · [Open the labs](../notebooks.qmd)
+
+## Acquisition channel changes the forecast
+
+**Try this:** remove the channel effect, then change social's dropout rate. Each pair of bars shows forecast (blue) and observed (orange) purchases per acquired customer over the next 13 weeks. The groups are search, social, referral from left to right. Drag to rotate.
+
+<div class="customer-lab" data-page="03">
+  <div class="lab-controls">
+    <label for="channel-effect">Use channel-specific rates <input id="channel-effect" type="checkbox" checked></label>
+    <label for="dropout">Social dropout multiplier <span data-value-for="dropout">100</span>%<input id="dropout" type="range" min="50" max="200" step="10" value="100"></label>
+  </div>
+  <div class="viz" tabindex="0" role="img" aria-label="Three-dimensional pairs of forecast and observed 13-week purchases for search, social, and referral customers."></div>
+  <div class="chart-key"><span style="--key-color:#398eaa">Scenario forecast</span><span style="--key-color:#e08a49">Observed holdout</span></div>
+  <p class="viz-note">Left to right: search, social, referral. Height: purchases per acquired customer in 13 weeks.</p>
+  <div class="readout" aria-live="polite">Loading the retailer aggregate…</div>
+</div>
+<script type="module" src="customer-assets/customer.js"></script>
+
+## Why the choice matters
+
+A pooled model gives every channel the same purchase and dropout rates. A channel model can distinguish buyers who purchase often but leave quickly from buyers who stay. Moving social's dropout rate changes the **forecast** but leaves the observed holdout fixed. That gap is useful for asking what assumptions the model needs to explain; it is not an experiment on customers.
+
+**Data:** [seeded synthetic retailer](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/README.md), 5,000 customers. The blue calculation uses the generator's known rates and known alive share, so this is a transparent mechanism demonstration, **not** a fitted CLVTools, PyMC-Marketing, or gradient-boosting forecast. The orange bars are actual 13-week purchases from the committed synthetic transaction log. The lab fits the models and compares their held-out error.

@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m01.title >}}"
+css: customer-assets/customer.css
+---
+
+[Back to Module 1](../modules/01-customer-base.qmd) · [Open the lab](../notebooks.qmd)
+
+## A silent customer may still return
+
+**Try this:** move the silence cutoff. The blocks group 2,357 real CDNOW customers by repeat-purchase frequency (left to right) and weeks since their last purchase (front to back). Block height is the number of customers. Orange cells would be labelled “churned”; blue cells would not. Drag the chart to rotate it.
+
+<div class="customer-lab" data-page="01">
+  <div class="lab-controls"><label for="cutoff">Flag after weeks without a purchase <span data-value-for="cutoff">12</span><input id="cutoff" type="range" min="4" max="40" step="4" value="12"></label></div>
+  <div class="viz" tabindex="0" role="img" aria-label="Three-dimensional CDNOW customer counts by repeat-purchase frequency and weeks since last purchase; orange cells are flagged by the cutoff."></div>
+  <div class="chart-key"><span style="--key-color:#e08a49">Flagged cells</span><span style="--key-color:#398eaa">Other cells</span></div>
+  <p class="viz-note">Left to right: 0, 1, 2–3, 4–7, 8+ repeat purchase days. Front to back: 0–4, 4–12, 12–24, 24–40, 40+ weeks of silence. Height: customers.</p>
+  <div class="readout" aria-live="polite">Loading the CDNOW aggregate…</div>
+</div>
+<script type="module" src="customer-assets/customer.js"></script>
+
+## What the rule changes
+
+At 12 weeks, any customer in an orange cell would be sent to a win-back campaign. Raise the cutoff and fewer customers are contacted. The later purchases in those cells show that some “lost” customers returned without proof that the campaign was needed. CDNOW has no observed churn status, so this page does not calculate false positives. Module 2 replaces the fixed rule with a model that uses each customer's purchase history.
+
+**Data:** grouped from the checksum-verified [CDNOW transaction source and provenance](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/README.md), through 1997-09-30, with purchases counted through 1998-06-30 for the holdout. The site includes aggregate cells only. The cutoff acts on each cell's representative silence, so the interactive counts are approximate; the notebook applies the rule to individual customers.
