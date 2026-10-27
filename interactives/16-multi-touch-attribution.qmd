@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m16.title >}}"
+subtitle: "Journey credit versus incremental conversions"
+page-layout: full
+---
+
+[Back to the module](../modules/16-multi-touch-attribution.qmd) · [All interactive concepts](../interactives.qmd)
+
+## Which channel earned a conversion?
+
+Switch among five ways to split the 3,020 conversions in tracked journeys, then select a channel to inspect. The blue bars are **attribution credit** from the observed paths. Green bars are the seeded generator's counterfactual result: conversions lost if that channel had not reached its users, keeping the other channels and random draws fixed. The totals differ because a journey-credit budget must sum to tracked conversions, while channel effects can overlap.
+
+<link rel="stylesheet" href="decision-assets/explorer.css">
+<div class="model-explorer" data-model="attribution">
+  <div class="controls" aria-label="Attribution method and channel"></div>
+  <div class="stage" role="img" aria-label="Three-dimensional bars comparing attribution credit with true incremental conversions"></div>
+  <p class="axis"></p><div class="key" aria-label="Series key"></div>
+  <p class="readout" role="status" aria-live="polite"></p>
+  <div class="table-wrap"><table><caption>Credited and incremental conversions in the simulated journeys</caption></table></div>
+</div>
+<script type="module" src="decision-assets/explorer.js"></script>
+
+**Work one example.** Last click assigns retargeting 1,114 conversions, more than any other channel. Removing it in the synthetic counterfactual loses zero conversions. It reaches high-intent users late, so the path records it even when it caused nothing. A budget decision needs a holdout or lift test, not a more elaborate way to count touches.
+
+**Data.** [Seeded synthetic journeys](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/mta_journeys.csv) and [known counterfactual truth](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/truth_mta.json). The [module](../modules/16-multi-touch-attribution.qmd) computes all five credit methods on those journeys. These are measured results of that simulation, not evidence that one attribution method always ranks better.

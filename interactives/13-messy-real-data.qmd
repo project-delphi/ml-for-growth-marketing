@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m13.title >}}"
+subtitle: "How a cleaning choice changes a contact list"
+page-layout: full
+---
+
+[Back to the module](../modules/13-messy-real-data.qmd) · [All interactive concepts](../interactives.qmd)
+
+## One list, several definitions of a purchase
+
+Choose a cleaning or counting rule. The chart shows how many customers **enter** or **leave** the contact list relative to the reference pipeline. The list uses the module's fixed decision: contact a customer when 10% assumed revenue lift at 30% gross margin exceeds a £10 contact cost. The bars are measured changes from the module's full run, not a live model refit.
+
+<link rel="stylesheet" href="decision-assets/explorer.css">
+<div class="model-explorer" data-model="cleaning">
+  <div class="controls" aria-label="Cleaning choices"></div>
+  <div class="stage" role="img" aria-label="Three-dimensional bars showing customer additions and removals under cleaning choices"></div>
+  <p class="axis"></p><div class="key" aria-label="Series key"></div>
+  <p class="readout" role="status" aria-live="polite"></p>
+  <div class="table-wrap"><table><caption>Changes to the real retail customer contact list</caption></table></div>
+</div>
+<script type="module" src="decision-assets/explorer.js"></script>
+
+**Work one example.** Counting invoices instead of purchase days adds 14 customers and drops 139, so the list falls from 2,212 to 2,087. It changes frequency even when a customer splits one basket across two invoices on the same day. Customer 12346 is a sharper example in the [module](../modules/13-messy-real-data.qmd): after excluding test lines and a cancelled bulk order, their projected revenue falls below the contact threshold.
+
+**Data.** The contact-list counts were computed in the module's full run on [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii), a real transaction dataset. UCI's dataset description and CC BY 4.0 license were verified 2026-10-27. The modules' run record, cleaning definitions, and customer-level explanation remain the source of the measured numbers. The lift, margin, and cost are scenario assumptions.

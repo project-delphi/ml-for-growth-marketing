@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m15.title >}}"
+subtitle: "An app-install decision under confounding"
+page-layout: full
+---
+
+[Back to the module](../modules/15-double-ml.qmd) · [All interactive concepts](../interactives.qmd)
+
+## The same customers, three answers
+
+App installers spend more, but they also differ before installing. The three blue bars compare the naive difference, a linear adjustment, and **double machine learning (DML)** from the lab. The orange bars show the extra spend needed to pay for your install credit at 30% margin. Move the omitted-confounder slider to see how fragile the DML decision is to a common cause missing from the data. The slider applies a sensitivity shift; it does not refit the model.
+
+<link rel="stylesheet" href="decision-assets/explorer.css">
+<div class="model-explorer" data-model="dml">
+  <div class="controls" aria-label="Confounding and credit assumptions"></div>
+  <div class="stage" role="img" aria-label="Three-dimensional bars showing app spend effects and credit break-even threshold"></div>
+  <p class="axis"></p><div class="key" aria-label="Series key"></div>
+  <p class="readout" role="status" aria-live="polite"></p>
+  <div class="table-wrap"><table><caption>Estimated spend effect and credit economics</caption></table></div>
+</div>
+<script type="module" src="decision-assets/explorer.js"></script>
+
+**Work one example.** A $2.50 credit requires $8.33 of extra spend at 30% margin. DML estimates $13.51, with a 95% interval of $10.51–$16.50. The lower end clears break-even. A $6.39 omitted-variable shift, as measured when the module leaves out mobile share, moves the whole interval below or across break-even and changes the recommendation.
+
+**Data.** [Seeded synthetic app-install customers](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/app_install_customers.csv), with known treatment effects. Estimates and the leave-one-variable-out shift come from the [module's recorded run](../modules/15-double-ml.qmd). A real credit campaign would need randomization to measure how many installs the credit persuades.

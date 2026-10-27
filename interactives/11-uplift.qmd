@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m11.title >}}"
+subtitle: "An email test, a targeting threshold, and the cost of confusing response with lift"
+page-layout: full
+---
+
+[Back to the module](../modules/11-uplift.qmd) · [All interactive concepts](../interactives.qmd)
+
+## Start with the observed experiment
+
+Hillstrom's real randomized email test assigned customers to a women's email, a men's email, or no email. The chart uses the women's and no-email arms. Each pair of bars is the **observed mean two-week spend** in a prior-spend band; the table gives each arm's count. Set your assumed gross margin and cost per email, then compare the margin difference with the cost.
+
+<link rel="stylesheet" href="decision-assets/explorer.css">
+<div class="model-explorer" data-model="uplift">
+  <div class="controls" aria-label="Targeting assumptions"></div>
+  <div class="stage" role="img" aria-label="Three-dimensional bars comparing mean spend by prior-spend band and email assignment"></div>
+  <p class="axis"></p><div class="key" aria-label="Series key"></div>
+  <p class="readout" role="status" aria-live="polite"></p>
+  <div class="table-wrap"><table><caption>Observed Hillstrom subgroup means and an illustrative targeting threshold</caption></table></div>
+</div>
+<script type="module" src="decision-assets/explorer.js"></script>
+
+**Work one example.** In the $0–$100 prior-spend band, no-email customers averaged $0.52 and women's-email customers averaged $1.14. At 30% margin, the observed difference is worth about $0.19 before email cost. With a $0.10 send cost, it clears the threshold by about $0.09 per customer. That is a subgroup average, not an individual effect; a handful of orders can move the mean. The [module](../modules/11-uplift.qmd) uses held-out evaluation and causal forests to test a targeting rule.
+
+**Data.** I aggregated the 64,000-row [MineThatData email challenge](https://blog.minethatdata.com/2008/03/minethatdata-e-mail-analytics-and-data.html) cached by the workshop loader, using the seven `history_segment` values and `segment` assignment. Means are rounded to four decimals in the visualization. Source and experiment description verified 2026-10-27. Margin and cost are assumptions you control.

@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m18.title >}}"
+subtitle: "Why more opens can leave fewer reachable users"
+page-layout: full
+---
+
+[Back to the module](../modules/18-notifications.qmd) · [All interactive concepts](../interactives.qmd)
+
+## Pick a cadence and a horizon
+
+The same simulated 20,000 users receive 0, 1, 2, 3, 5, or 7 reminders per week for 90 days. Common random numbers make policy differences less noisy. Choose the decision horizon and a cadence. Green bars show margin per user; orange bars show opt-out share, scaled solely to make both measures visible in one 3D scene. Read the table for the actual opt-out rates.
+
+<link rel="stylesheet" href="decision-assets/explorer.css">
+<div class="model-explorer" data-model="notifications">
+  <div class="controls" aria-label="Notification cadence and horizon"></div>
+  <div class="stage" role="img" aria-label="Three-dimensional bars showing margin and opt-outs for notification cadences"></div>
+  <p class="axis"></p><div class="key" aria-label="Series key"></div>
+  <p class="readout" role="status" aria-live="polite"></p>
+  <div class="table-wrap"><table><caption>Simulated margin and opt-outs by reminders per week</caption></table></div>
+</div>
+<script type="module" src="decision-assets/explorer.js"></script>
+
+**Work one example.** Seven reminders a week lead to about $1.95 of margin per user in week 1, compared with $1.83 for three. Over 90 days, three yields $21.88 and seven yields $17.93, while opt-outs rise from 5.4% to 45.8%. The short horizon picks the wrong cadence for the quarter. The [module](../modules/18-notifications.qmd) then tests personalized policies with an opt-out guardrail.
+
+**Data.** [Seeded synthetic notification users](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/notifications_users.csv), with the 90-day policy outcomes reported by the [module's recorded run](../modules/18-notifications.qmd). The simulated fatigue and opt-out process is documented in [truth_notifications.json](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/truth_notifications.json). These values are not real app benchmarks.

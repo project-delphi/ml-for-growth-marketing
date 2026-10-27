@@ -1,0 +1,25 @@
+---
+title: "Explore {{< var modules.m17.title >}}"
+subtitle: "The same channel over all three years and the last quarter"
+page-layout: full
+---
+
+[Back to the module](../modules/17-mmm-time-varying.qmd) · [All interactive concepts](../interactives.qmd)
+
+## A good historical average can hide a bad current return
+
+Switch the decision window from all 156 weeks to the last quarter. The green bars show each channel's **true sales return on ad spend** in the workshop's seeded data; the orange bars are the break-even return for your assumed gross margin. The 3D view shows how a time window changes the data a model must explain. The lab fits static and time-varying Bayesian marketing mix models and reports 94% highest-density intervals around their estimates.
+
+<link rel="stylesheet" href="decision-assets/explorer.css">
+<div class="model-explorer" data-model="drift">
+  <div class="controls" aria-label="Window and margin assumptions"></div>
+  <div class="stage" role="img" aria-label="Three-dimensional bars showing channel return by time window and break-even threshold"></div>
+  <p class="axis"></p><div class="key" aria-label="Series key"></div>
+  <p class="readout" role="status" aria-live="polite"></p>
+  <div class="table-wrap"><table><caption>True sales return per advertising dollar in the simulated market</caption></table></div>
+</div>
+<script type="module" src="decision-assets/explorer.js"></script>
+
+**Work one example.** At 30% margin, $1 of media needs $3.33 of sales to pay back. Social returns $4.00 per dollar over all three years and $2.11 in the last quarter. The recent window argues for cutting or testing before renewing; the all-period average argues for keeping. The [module](../modules/17-mmm-time-varying.qmd) quantifies uncertainty and gives a decision rule based on posterior probability.
+
+**Data.** [Seeded synthetic weekly media series](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/mmm_drift_weekly.csv) and [generator truth](https://github.com/project-delphi/ml-for-growth-marketing/blob/main/data/synthetic/truth_mmm_drift.json). The all-period and last-quarter return values come from the truth file; gross margin is your scenario input.

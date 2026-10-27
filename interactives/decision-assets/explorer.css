@@ -1,0 +1,14 @@
+.model-explorer{border:1px solid var(--bs-border-color,#ccd5df);border-radius:1rem;padding:1rem;margin:1.5rem 0;background:var(--bs-body-bg,#fff)}
+.model-explorer .controls{display:flex;flex-wrap:wrap;gap:1rem;margin:.6rem 0 1rem}
+.model-explorer label{display:grid;gap:.3rem;min-width:11rem;flex:1;font-weight:600}
+.model-explorer input,.model-explorer select{width:100%;accent-color:#137c79}
+.model-explorer .value{font-weight:400;font-variant-numeric:tabular-nums}
+.model-explorer canvas{display:block;max-width:100%;touch-action:none}
+.model-explorer .stage{height:360px;border-radius:.6rem;background:#132d38;overflow:hidden}
+.model-explorer .readout{border-left:4px solid #137c79;padding:.7rem 1rem;margin:1rem 0;background:rgba(20,126,121,.09)}
+.model-explorer .key{display:flex;gap:1rem;flex-wrap:wrap;font-size:.9rem}
+.model-explorer .key span::before{content:'';display:inline-block;width:.7rem;height:.7rem;background:var(--swatch);margin-right:.35rem;border-radius:2px}
+.model-explorer table{width:100%;font-variant-numeric:tabular-nums}
+.model-explorer th,.model-explorer td{text-align:left;padding:.35rem .5rem;border-bottom:1px solid var(--bs-border-color,#ccd5df)}
+.model-explorer .table-wrap{overflow-x:auto}
+@media(max-width:600px){.model-explorer{padding:.65rem}.model-explorer .stage{height:280px}}
