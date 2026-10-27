@@ -97,8 +97,6 @@ website:
             text: "Day 5 · Targeting and the plan"
           - href: extensions.qmd
             text: "Extensions · Beyond the core week"
-          - href: interactives/index.qmd
-            text: "Interactive models · Explore the decisions"
       - href: notebooks.qmd
         text: Notebooks
       - href: references.qmd
@@ -114,6 +112,8 @@ website:
   page-footer:
     left: "Machine Learning for Growth Marketing · Genial Labs · Built with [Quarto](https://quarto.org)"
     center:
+      - href: interactives/index.qmd
+        text: Explore models
       - href: setup.qmd
         text: Setup
       - href: faq.qmd

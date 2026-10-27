@@ -223,7 +223,7 @@ DECISIONS.md ("Name and scope", "Module 18").
 ### Phase 10 — Interactive model companions (2026-10-27)
 The teaching modules retain their measured lab evidence; the companions are browser explorations of data, assumptions, and decisions.
 - [x] [UI/AD] Add an interactive section with one Three.js companion page for each teaching module with its own model or concept (Modules 1–11 and 13–18); the capstone combines those decisions.
-- [x] [UI] Link the section from Home and the Days menu, and link each companion from its module briefing.
+- [x] [UI] Link the section from Home and the site footer, and link each companion from its module briefing.
 - [x] [TE] Vendor the pinned Three.js ES modules locally; keep real-data provenance and synthetic-data labels visible; verify controls and decision readouts in a browser.
 - [x] [Lead] Render the full site with the workshop Quarto image and check generated-table drift.
 
