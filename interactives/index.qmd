@@ -5,6 +5,30 @@ description: "Change a model assumption, inspect the data in three dimensions, a
 
 Each page starts with a specific dataset, shows what the model uses, and lets you change one assumption at a time. The three-dimensional view is paired with numbers and a decision statement, so the result remains readable without depth perception. The source note on each page distinguishes observed data from a simulation. These are teaching demonstrations; the full notebooks fit and check the models.
 
+<link rel="stylesheet" href="overview-assets/overview.css">
+
+## Try a response curve
+
+This **illustrative model** shows how this week's response could depend on both current and prior spend. Move the sliders to inspect one point on the surface. The line plot shows the same model at the selected prior spend. Values are index points, not measured sales or a fitted marketing mix model.
+
+```{=html}
+<section class="overview-demo" aria-label="Interactive response curve preview">
+  <div class="overview-controls">
+    <label for="overview-current">Current spend index <output id="overview-current-value" for="overview-current">40</output><input id="overview-current" type="range" min="0" max="100" value="40"></label>
+    <label for="overview-prior">Prior spend index <output id="overview-prior-value" for="overview-prior">35</output><input id="overview-prior" type="range" min="0" max="100" value="35"></label>
+    <label for="overview-memory">Carryover from prior spend <output id="overview-memory-value" for="overview-memory">50%</output><input id="overview-memory" type="range" min="0" max="100" value="50"></label>
+  </div>
+  <div class="overview-visuals">
+    <div class="overview-visual"><div class="overview-visual-head"><strong>Response surface</strong><button id="overview-motion" type="button" aria-pressed="false">Pause motion</button></div><div id="overview-stage" class="overview-stage" role="img" aria-label="Three-dimensional response surface: current spend, prior spend, and response index"></div><p>Drag to rotate. Height shows response index.</p></div>
+    <div class="overview-visual"><strong>At the selected prior spend</strong><svg id="overview-plot" class="overview-plot" viewBox="0 0 440 280" role="img" aria-label="Response index by current spend at the selected prior spend"></svg><p>The dot follows the current spend slider.</p></div>
+  </div>
+  <p id="overview-readout" class="overview-readout" aria-live="polite"></p>
+  <p class="overview-note">Illustrative formula: response index = 100 × (1 − exp(−(current spend + carryover × prior spend) / 45)). A ten-point spend step is a model comparison, not a forecast. Continue to <a href="08-bayesian-mmm.qmd">marketing mix modeling</a> or <a href="10-budget-allocation.qmd">budget allocation</a> for the workshop examples.</p>
+</section>
+```
+
+<script type="module" src="overview-assets/overview.js"></script>
+
 ## Customers and value
 
 | Interactive companion | Decision to inspect |

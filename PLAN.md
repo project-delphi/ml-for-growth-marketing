@@ -226,4 +226,5 @@ The teaching modules retain their measured lab evidence; the companions are brow
 - [x] [UI] Link the section from Home and the site footer, and link each companion from its module briefing.
 - [x] [TE] Vendor the pinned Three.js ES modules locally; keep real-data provenance and synthetic-data labels visible; verify controls and decision readouts in a browser.
 - [x] [Lead] Render the full site with the workshop Quarto image and check generated-table drift.
+- [x] [UI] Add an animated Three.js response-surface preview and linked line plot to the Explore landing page; verify slider updates, browser errors, desktop layout, and 375 px overflow (2026-10-28).
 
